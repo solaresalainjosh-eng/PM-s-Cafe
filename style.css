@@ -1,0 +1,1658 @@
+/* Dark background, warm brown accents, readable text */
+:root {
+  --bg-dark: #1a1a1a;
+  --text-light: #f5e9d7;
+  --accent-primary: #5c3a21;     /* dark mocha brown */
+  --accent-secondary: #c49a6c;  /* light caramel brown */
+  --btn-hover: #8b5e3c;         /* warm coffee brown */
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+  --transition: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+body.light {
+  --bg-dark: #fafafa;  /* Override for light mode */
+  --text-light: #222;  /* Override for light mode */
+  --accent-primary: #8b5e3c;  /* Adjusted for light mode */
+  --accent-secondary: #c49a6c;  /* Keep or adjust as needed */
+  --btn-hover: #6c4a2e;  /* Adjusted for light mode */
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background-color: var(--accent-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--accent-secondary);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-dark);
+}
+
+#bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background: var(--accent-primary);
+  color: var(--text-light);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  transform: scale(1.05);
+}
+
+/* HIGHLIGHTS / CARDS */
+.highlights {
+  padding: 60px 8% 40px;
+  text-align: center;
+}
+
+.highlights h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--text-light);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform var(--transition);
+  padding-bottom: 20px;
+  color: var(--text-light);
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px 0 10px;
+  color: var(--accent-secondary);
+}
+
+.card p {
+  font-size: 0.95rem;
+  padding: 0 15px;
+}
+
+/* PROMO / JOIN US */
+.promo-join {
+  padding: 60px 8%;
+  background-color: #3b2416;
+  text-align: center;
+}
+
+.promo-join h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.promo-join p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--text-light);
+}
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  color: var(--text-light);
+  padding: 30px 8%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.socials a {
+  margin-left: 15px;
+}
+
+.socials img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar ul {
+    gap: 15px;
+  }
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+  .promo-join {
+    padding: 40px 4%;
+  }
+  .cards {
+    gap: 20px;
+  }
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card, .promo-join, .hero-content {
+  transform: translateY(30px);
+}
+
+.page-header {
+  text-align: center;
+  padding: 80px 10px 40px;
+  background: none !important; /* removes brown background */
+  color: #fff;
+}
+
+
+.page-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* PRODUCTS PAGE */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 50px 8%;
+}
+
+.product-card {
+  background-color: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  color: #f2f2f2;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ABOUT PAGE */
+.about-section {
+  padding: 60px 8%;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-content img {
+  width: 45%;
+  border-radius: 10px;
+}
+
+.about-content .text {
+  flex: 1;
+  color: #f5e9d7;
+}
+
+.about-content .text h3 {
+  margin-bottom: 15px;
+  color: var(--accent-secondary);
+}
+
+/* CONTACT PAGE */
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 8%;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.info-box {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #3b3b3b;
+  color: #f5e9d7;
+}
+
+.contact-form button {
+  width: 100%;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-left {
+  opacity: 0;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-right {
+  opacity: 0;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #1e1a16;
+  color: #fff;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #4b2e05, #2b1b09);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f5d19a;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #f5d19a;
+}
+
+/* Menu Section */
+.menu-section {
+  background: linear-gradient(180deg, #3b2412, #1e1a16);
+  padding: 60px 20px;
+}
+
+.menu-section h1 {
+  font-size: 2.5em;
+  color: #f5d19a;
+  margin-bottom: 10px;
+}
+
+.menu-section p {
+  color: #d9c7b1;
+  margin-bottom: 40px;
+  font-size: 1.1em;
+}
+
+/* Menu Image Styling */
+.menu-image img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(245, 209, 154, 0.4);
+}
+
+
+
+/* VIDEO BACKGROUND FOR MENU SECTION */
+.menu-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+#menu-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: -1;
+}
+
+/* MENU CONTENT */
+.menu-content {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-content h1 {
+  font-size: 2.8rem;
+  color: var(--accent-secondary);
+}
+
+.menu-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+/* MENU IMAGE */
+.menu-image img {
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.menu-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  background: none; /* Remove solid color background */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+#menu-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* MENU SECTION  */
+/* Ensure "Our Menu" header is visible below navbar  */
+.menu-section {
+  padding-top: 180px !important; /* adds extra space from top */
+  min-height: 100vh;
+  padding: 80px 20px; /* Adds more breathing room */
+  min-height: 120vh; /* Makes it taller than the viewport */
+}
+
+.menu-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 20px;
+}
+
+.menu-section h1 {
+  font-size: 2.8rem;
+  color: #f5d19a;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.menu-section p {
+  font-size: 1.2rem;
+  color: #f5e6b5;
+  margin-bottom: 60px;
+}
+
+/* MENU GALLERY LAYOUT */
+.menu-gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 0 80px 80px; /* removed top padding to balance with section heading */
+}
+
+/* LEFT SIDE: MENU IMAGE */
+.menu-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.menu-left img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-left img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(245, 209, 154, 0.6);
+  cursor: pointer;
+}
+
+/* RIGHT SIDE: PROMOS */
+.menu-right {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* more spacing between promo images */
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 40px; /* lowers the promo column a bit */
+}
+
+.menu-right img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-right img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(245, 209, 154, 0.6);
+  cursor: pointer;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 900px) {
+  .menu-gallery {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .menu-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .menu-right img {
+    max-width: 180px;
+  }
+}
+
+/* PROMO SIDE IMAGES (bigger and more balanced) */
+.promo-side {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.promo-card {
+  position: relative;
+  width: 280px;  /* bigger promo size */
+  height: 250px;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(245, 209, 154, 0.5);
+}
+
+/* Overlay text effect */
+.promo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.65);
+  color: #f5d19a;
+  padding: 10px;
+  font-size: 1em;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.promo-card:hover .promo-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .menu-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo-side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .promo-card {
+    width: 45%;
+    height: 220px;
+  }
+
+  .menu-main img {
+    width: 90%;
+  }
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.lightbox-content:hover {
+  transform: scale(1.02);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #f5c47c;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/* ABOUT US HERO (Video Background) */
+.about-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  background: none;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+#about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%) contrast(105%);
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* dark overlay for text readability */
+  z-index: -1;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.about-hero-content h2 {
+  font-size: 2.8rem;
+  color: var(--accent-secondary);
+  margin-bottom: 10px;
+}
+
+.about-hero-content p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .about-hero-content h2 {
+    font-size: 2.2rem;
+  }
+  .about-hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* CONTACT PAGE VIDEO BACKGROUND */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+#contact-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%) contrast(110%);
+}
+
+.video-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* dark overlay for readability */
+  z-index: -1;
+}
+
+/* CONTACT SECTION OVERLAY FIX */
+.contact-section {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  z-index: 1;
+}
+
+.contact-info, .contact-form {
+  background: rgba(20, 20, 20, 0.85);
+  padding: 25px;
+  border-radius: 15px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.contact-form .btn {
+  width: 100%;
+  background: var(--accent-primary, #a05c2a);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form .btn:hover {
+  background: var(--accent-secondary, #f5c47c);
+  color: #111;
+}
+
+/*  RESPONSIVE FIXES  */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Remove footer background ONLY on the menu page */
+.menu-section footer {
+  background: none !important;
+}
+
+/* Remove solid footer background and make text overlay on the image */
+footer {
+  background: transparent; /* removes brown background */
+  color: #f5e1b5; /* soft light beige text to match your café theme */
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: add subtle text shadow for better contrast on photos */
+footer p {
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* FOOTER FIX FOR NON-MENU PAGES */
+footer {
+  background: transparent !important; /* remove brown background */
+  text-align: center !important; /* center the text horizontally */
+  color: #f5e1b5; /* soft beige tone consistent with your theme */
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Center text block inside footer */
+footer p {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* improves readability */
+}
+
+.card {
+  background: rgba(30, 25, 20, 0.8);
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.card:hover video {
+  filter: brightness(1);
+}
+
+.card h3 {
+  color: #d1a774;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #f6e0b3;
+  font-size: 0.95rem;
+}
+
+/* GLOBAL FONT STYLES */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #f5f5f5;
+  background-color: #111; /* or your existing background */
+  line-height: 1.6;
+}
+
+/* Headings – elegant and cozy */
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+  color: #f5deb3; /* latte/golden tone */
+  letter-spacing: 1px;
+}
+
+/* Paragraphs and general text */
+p, li, a, label, input, textarea {
+  font-family: 'Poppins', sans-serif;
+  color: #f8f8f8;
+}
+
+/* Optional handwritten accents for special quotes or subtitles */
+.cursive, .tagline, .quote {
+  font-family: 'Caveat', cursive;
+  color: #fff8e7;
+  font-size: 1.2rem;
+}
+
+/* Optional section titles for About, Menu, Contact */
+section h2 {
+  font-size: 2rem;
+  color: #f5deb3;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons to match theme */
+.btn {
+  font-family: 'Poppins', sans-serif;
+  background-color: #a05c2a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #f5c47c;
+  color: #111;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-header h2 {
+  transition-delay: 0.2s;
+}
+.menu-header p {
+  transition-delay: 0.5s;
+}
+
+.scroll-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.scroll-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-card {
+  min-width: 180px;
+  background: #ffffffbb;
+  padding: 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-card button {
+  background: #b4742f;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #8b5720;
+}
+
+.menu-section {
+  position: relative;
+  min-height: 120vh; /* keeps it tall enough */
+  padding-top: 180px; /* space for navbar */
+  padding: 80px 20px;
+  overflow: visible; /* change this */
+  display: flex;
+  flex-direction: column; /* let content stack naturally */
+  justify-content: flex-start; /* top-align content */
+  align-items: center;
+  text-align: center;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none; /* allows scrolling clicks */
+}
+
+/* Full-page video background */
+.video-background {
+  position: fixed;       /* keep video fixed on screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;           /* behind all content */
+  overflow: hidden;
+  pointer-events: none;  /* allow clicks/scrolls to pass */
+}
+
+#menu-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* fill screen without stretching */
+}
+
+.menu-section {
+  padding-bottom: 100px;  /* space for footer */
+}
+
+/* Milk Tea single card styling */
+.milk-tea-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.milk-tea-card {
+  position: relative;
+  width: 85%;           /* slightly smaller than max page width */
+  max-width: 500px;     /* slightly bigger than previous individual cards */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milk-tea-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.milk-tea-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+}
+
+.milk-tea-text {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.45);  /* slightly transparent overlay */
+  color: #f5e1b5;
+  font-size: 1rem;
+  padding: 6px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* MENU SECTION: allow natural height */
+.menu-section {
+  position: relative;
+  min-height: auto;        /* remove fixed min-height */
+  height: auto;            /* allow content to determine height */
+  padding-top: 180px;      /* space for navbar */
+  padding-bottom: 60px;    /* spacing for footer */
+  overflow: visible;       /* make sure nothing is hidden */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+/* VIDEO BACKGROUND */
+.video-background {
+  position: fixed;         /* full screen video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;             /* behind content */
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* MILK TEA SECTION */
+.milk-tea-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.milk-tea-card {
+  position: relative;
+  width: 85%;           /* slightly bigger */
+  max-width: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milk-tea-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.milk-tea-text {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.45);
+  color: #f5e1b5;
+  font-size: 1rem;
+  padding: 6px 0;
+}
+
+.milk-tea-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  background: rgba(0,0,0,0.65);  /* semi-transparent box */
+  color: #f5e1b5;
+  padding: 12px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+
+  max-height: 100%;    /* allow full height if content is taller */
+  overflow-y: auto;    /* add scroll if needed */
+}
+
+/* Milk Tea Section */
+.milk-tea-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.milk-tea-card {
+  position: relative;
+  width: 85%;
+  max-width: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milk-tea-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.milk-tea-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7); 
+  color: #f5e1b5;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.milk-tea-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+/* Add to Cart button matches product-card style */
+.add-cart-btn {
+  background: #b4742f;           /* same as coffee buttons */
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.add-cart-btn:hover {
+  background: #8b5720;           /* same hover effect */
+}
+
+/* Optional hover effect on card */
+.milk-tea-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .milk-tea-card {
+    max-width: 90%;
+  }
+  .milk-tea-text {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  .add-cart-btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Keep previous product card size, arrange in rows */
+.scroll-row {
+  display: flex;
+  flex-wrap: wrap;       /* wrap items to next row */
+  gap: 20px;             /* spacing between products */
+  justify-content: flex-start;
+}
+
+/* Keep the previous card size */
+.product-card {
+  flex: 0 0 200px;       /* fixed width like before */
+  box-sizing: border-box;
+}
+
+/* Product images */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Titles and prices */
+.product-card h3 {
+  margin: 10px 0 5px;
+}
+.product-card p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Add to Cart button */
+.product-card button {
+  background-color: #5c3a21;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.product-card button:hover {
+  background-color: #432914;
+  transform: scale(1.05);
+}
+
+/* Milk Tea section items as rows */
+.milk-tea-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.milk-tea-item {
+  flex: 0 0 200px;       /* same width as other product cards */
+  box-sizing: border-box;
+}
+.milk-tea-item button {
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-card, .milk-tea-item {
+    flex: 0 0 48%;        /* 2 per row on tablets */
+  }
+}
+@media (max-width: 480px) {
+  .product-card, .milk-tea-item {
+    flex: 0 0 100%;       /* 1 per row on mobile */
+  }
+}
+
+.milk-tea-card img {
+  width: 100%;        /* fill the card width */
+  max-height: 350px;  /* make it bigger but not too tall */
+  object-fit: cover;  /* scale/crop proportionally */
+  border-radius: 10px;
+}
+
+.menu-card {
+  background: rgba(255, 248, 240, 0.7); /* warm creamy tone, slightly transparent */
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(80, 50, 20, 0.3); /* soft brown shadow for café tone */
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(130, 90, 40, 0.2); /* subtle coffee border */
+  backdrop-filter: blur(5px);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(100, 60, 20, 0.4);
+}
+
+.menu-card h3 {
+  color: #5c3d2e; /* warm brown title */
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.menu-card p {
+  color: #6b4b3b;
+  font-size: 0.95rem;
+  margin: 3px 0;
+}
+
+.menu-card button {
+  background-color: #8b5e34; /* coffee brown */
+  color: #fff8f0;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.menu-card button:hover {
+  background-color: #a97142;
+  transform: scale(1.05);
+}
+
+/* ✅ ZAGU-LIKE SCROLLING STYLING */
+.scroll-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.scroll-row {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 5px;
+}
+
+.scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 20;
+  transition: 0.2s;
+}
+
+.scroll-btn:hover {
+  background: var(--btn-hover);
+}
+
+.scroll-btn.left {
+  left: -10px;
+}
+
+.scroll-btn.right {
+  right: -10px;
+}
+
+
+.product-card {
+  min-width: 200px;
+  width: 200px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding-bottom: 20px;
+}
+
+/* CART PANEL STYLING */
+#cart-panel {
+  position: fixed;
+  top: 80px; /* below navbar */
+  right: 0;
+  width: 320px;
+  max-height: 80vh;
+  background: rgba(30, 30, 30, 0.95);
+  color: #f5e1b5;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+  border-left: 2px solid #b4742f;
+  z-index: 100;
+}
+
+#cart-panel h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #f5c47c;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(245, 209, 154, 0.3);
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.cart-item-details p {
+  margin: 2px 0;
+}
+
+.cart-item-quantity input {
+  width: 50px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+}
+
+#cart-total {
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: right;
+  font-size: 1.1rem;
+}
+
+#checkout-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #b4742f;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#checkout-btn:hover {
+  background: #8b5720;
+}
