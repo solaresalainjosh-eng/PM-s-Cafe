@@ -1656,3 +1656,138 @@ section h2 {
 #checkout-btn:hover {
   background: #8b5720;
 }
+
+/* ====== MOBILE RESPONSIVENESS FIX ====== */
+@media (max-width: 768px) {
+
+  /* Navbar fixes */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    gap: 10px;
+  }
+
+  .navbar nav ul li a {
+    display: block;
+    padding: 8px 0;
+  }
+
+  /* Hero section */
+  .hero {
+    height: auto;
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  #bg-video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* Highlights / Cards */
+  .highlights .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlights .card {
+    width: 90%;
+  }
+
+  /* About section */
+  .about-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-section img {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-section .text {
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Contact form */
+  .contact-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-info, .contact-form {
+    width: 100%;
+  }
+
+  /* Menu page */
+  .menu-content h1 {
+    font-size: 2rem;
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .scroll-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 15px 10px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .product-card h3 {
+    font-size: 1rem;
+  }
+
+  .product-card p {
+    font-size: 0.9rem;
+  }
+}
