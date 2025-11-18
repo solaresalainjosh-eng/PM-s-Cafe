@@ -1,19 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === SCROLL ANIMATION ===
-  const items = document.querySelectorAll(".menu-item img");
-
-  function handleScroll() {
-    items.forEach(img => {
-      const rect = img.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        img.classList.add("visible");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // trigger on load
-
   // === FADE-UP INTERSECTION OBSERVER ===
   const fadeElements = document.querySelectorAll(".fade-up");
 
@@ -47,6 +32,7 @@ addToCartButtons.forEach((btn) => {
     const priceText = card.querySelector('p').textContent;
     const sizeSelect = card.querySelector('.size-select');
     const size = sizeSelect.value;
+    const imgSrc = card.querySelector('img').src; // <-- get product image
 
     // Determine price based on size
     let price = 0;
@@ -68,8 +54,8 @@ addToCartButtons.forEach((btn) => {
       if (match) price = parseInt(match[3]);
     }
 
-    // Add item to cart
-    cart.push({ name, size, price });
+    // Add item to cart including image
+    cart.push({ name, size, price, image: imgSrc });
     renderCart();
   });
 });
@@ -83,6 +69,7 @@ function renderCart() {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" class="cart-img">
       <span>${item.name} (${item.size})</span>
       <span>₱${item.price}</span>
       <button class="remove-btn" data-index="${index}">Remove</button>
