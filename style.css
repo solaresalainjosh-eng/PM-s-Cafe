@@ -1154,28 +1154,6 @@ section h2 {
   text-align: center;
 }
 
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none; /* allows scrolling clicks */
-}
-
-/* Full-page video background */
-.video-background {
-  position: fixed;       /* keep video fixed on screen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;           /* behind all content */
-  overflow: hidden;
-  pointer-events: none;  /* allow clicks/scrolls to pass */
-}
-
 #menu-video {
   width: 100%;
   height: 100%;
@@ -1184,48 +1162,6 @@ section h2 {
 
 .menu-section {
   padding-bottom: 100px;  /* space for footer */
-}
-
-/* Milk Tea single card styling */
-.milk-tea-section {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.milk-tea-card {
-  position: relative;
-  width: 85%;           /* slightly smaller than max page width */
-  max-width: 500px;     /* slightly bigger than previous individual cards */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.milk-tea-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.milk-tea-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.5);
-}
-
-.milk-tea-text {
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(0,0,0,0.45);  /* slightly transparent overlay */
-  color: #f5e1b5;
-  font-size: 1rem;
-  padding: 6px 0;
-  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 /* MENU SECTION: allow natural height */
@@ -1255,103 +1191,6 @@ section h2 {
   pointer-events: none;
 }
 
-/* MILK TEA SECTION */
-.milk-tea-section {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.milk-tea-card {
-  position: relative;
-  width: 85%;           /* slightly bigger */
-  max-width: 500px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.milk-tea-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.milk-tea-text {
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(0,0,0,0.45);
-  color: #f5e1b5;
-  font-size: 1rem;
-  padding: 6px 0;
-}
-
-.milk-tea-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: left;
-  background: rgba(0,0,0,0.65);  /* semi-transparent box */
-  color: #f5e1b5;
-  padding: 12px 15px;
-  font-size: 1rem;
-  line-height: 1.5;
-  box-sizing: border-box;
-
-  max-height: 100%;    /* allow full height if content is taller */
-  overflow-y: auto;    /* add scroll if needed */
-}
-
-/* Milk Tea Section */
-.milk-tea-section {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.milk-tea-card {
-  position: relative;
-  width: 85%;
-  max-width: 500px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.milk-tea-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.milk-tea-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7); 
-  color: #f5e1b5;
-  padding: 12px 15px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.milk-tea-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1rem;
-}
 
 /* Add to Cart button matches product-card style */
 .add-cart-btn {
@@ -1375,20 +1214,6 @@ section h2 {
   box-shadow: 0 10px 22px rgba(0,0,0,0.5);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .milk-tea-card {
-    max-width: 90%;
-  }
-  .milk-tea-text {
-    font-size: 0.9rem;
-    padding: 10px 12px;
-  }
-  .add-cart-btn {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-  }
-}
 
 /* Keep previous product card size, arrange in rows */
 .scroll-row {
@@ -1791,3 +1616,106 @@ section h2 {
     font-size: 0.9rem;
   }
 }
+
+/* Main Contact Section Container */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* Left Side Info Panel */
+.contact-info {
+  flex: 1;
+  min-width: 350px;
+}
+
+/* Info Boxes (UNIFORM COLOR) */
+.info-box {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+}
+
+/* MAP SECTION (same color as info boxes) */
+.map-section {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  margin-top: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+}
+
+/* Map container fix */
+.map-container iframe {
+  width: 100%;
+  border: 0;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* Right Side Form */
+.contact-form {
+  flex: 1;
+  min-width: 350px;
+  max-width: 500px;
+  background: rgba(0,0,0,0.45);
+  padding: 25px 30px;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Button */
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background: #8b5a2b;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
+.contact-form button:hover {
+  background: #a46b30;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 900px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info, .contact-form {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
