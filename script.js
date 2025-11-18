@@ -14,35 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
   handleScroll(); // trigger on load
 
-  // === LIGHTBOX INTERACTIVITY ===
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close");
-
-  // Make all gallery images clickable
-  items.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "block";
-      lightboxImg.src = img.src;
-    });
-  });
-
-  // Close on overlay click or close button
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox || e.target === closeBtn) {
-      lightbox.style.display = "none";
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.style.display = "none";
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
+  // === FADE-UP INTERSECTION OBSERVER ===
   const fadeElements = document.querySelectorAll(".fade-up");
 
   const observer = new IntersectionObserver((entries) => {
@@ -59,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ======= CART FUNCTIONALITY =======
-
 const cart = [];
 const cartPanel = document.getElementById('cart-panel');
 const cartItemsContainer = document.getElementById('cart-items');
@@ -143,5 +114,3 @@ checkoutBtn.addEventListener('click', () => {
     renderCart();
   }
 });
-
-
